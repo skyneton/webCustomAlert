@@ -1,7 +1,14 @@
+const customAlertLanguages = {
+    "ok": {
+        "ko": "확인",
+        "ko-KR": "확인",
+        "default": "OK"
+    }
+}
 /**
  * @param {string} message
  */
-function alert(message) {
+function alert(message = "") {
     return new Promise(resolve => {
         message = message.replace(/\n/gi, '<br>');
         const alertBox = document.createElement("div");
@@ -10,7 +17,12 @@ function alert(message) {
         msgBox.innerHTML = message;
         const okbtn = document.createElement("button");
         okbtn.setAttribute("class", "al_okbtn");
-        okbtn.innerText = "확인";
+        
+        if(customAlertLanguages.ok[navigator.language])
+            okbtn.innerText = customAlertLanguages.ok[navigator.language];
+        else
+            okbtn.innerText = customAlertLanguages.ok["default"];
+            
         alertBox.appendChild(msgBox);
         alertBox.appendChild(okbtn);
 
@@ -30,7 +42,7 @@ function alert(message) {
  * @param {string} value
  * @param {string} type
  */
-function prompt(message, value = null, type = "text") {
+function prompt(message = "", value = null, type = "text") {
     return new Promise(resolve => {
         message = message.replace(/\n/gi, '<br>');
         const alertBox = document.createElement("div");
@@ -45,7 +57,10 @@ function prompt(message, value = null, type = "text") {
 
         const okbtn = document.createElement("button");
         okbtn.setAttribute("class", "al_okbtn");
-        okbtn.innerText = "확인";
+        if(customAlertLanguages.ok[navigator.language])
+            okbtn.innerText = customAlertLanguages.ok[navigator.language];
+        else
+            okbtn.innerText = customAlertLanguages.ok["default"];
 
         alertBox.appendChild(msgBox);
         alertBox.appendChild(inp);
@@ -71,7 +86,7 @@ function prompt(message, value = null, type = "text") {
 /**
  * @param {string} message
  */
-function confirm(message) {
+function confirm(message = "") {
     return new Promise(resolve => {
         message = message.replace(/\n/gi, '<br>');
         const alertBox = document.createElement("div");
@@ -84,7 +99,12 @@ function confirm(message) {
 
         const okbtn = document.createElement("button");
         okbtn.setAttribute("class", "al_okbtn");
-        okbtn.innerText = "확인";
+
+        if(customAlertLanguages.ok[navigator.language])
+            okbtn.innerText = customAlertLanguages.ok[navigator.language];
+        else
+            okbtn.innerText = customAlertLanguages.ok["default"];
+
         const cancelbtn = document.createElement("button");
         cancelbtn.setAttribute("class", "al_cancelbtn");
         cancelbtn.innerText = "취소";

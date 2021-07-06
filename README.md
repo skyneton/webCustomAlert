@@ -7,11 +7,11 @@
 ```
 # How To Use?
 ```javascript
-alert(message);
+alert(?message);
 
 // value is default value
 // type is input type(text, password ...)
-prompt(message, ?value, ?type);
+prompt(?message, ?value, ?type);
 
-confirm(message);
+confirm(?message);
 ```
