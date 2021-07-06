@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <style>
+        body {
+            display: flex;
+            align-content: center;
+            margin: 0;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+        }
+
+        body > div {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="alert('alert')">alert</button>
+        <button onclick="confirm('confirm')">confirm</button>
+        <button onclick="prompt('prompt', 'default', 'password')">prompt</button>
+    </div>
+</body>
+</html>
